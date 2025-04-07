@@ -105,9 +105,9 @@ unsigned char* renderScene(Scene* scene) {
 
                 Vec3 pixelPosCamSpace = vec3_build(pX, pY, -1.0f);
 
-                Vec4 originWorld = vec4_mat4_mult(vec4_build_from_vec3(scene->camera->position, 1.0f), inverseMat);
+                Vec4 originWorld = vec4_mat4_mult(vec4_build_from_vec3(scene->camera->position, 1.0f), matrix);
                 Vec3 originWorldv3 = vec3_build(originWorld.x, originWorld.y, originWorld.z);
-                Vec4 pixelPos = vec4_mat4_mult(vec4_build_from_vec3(pixelPosCamSpace, 1.0f), inverseMat);
+                Vec4 pixelPos = vec4_mat4_mult(vec4_build_from_vec3(pixelPosCamSpace, 1.0f), matrix);
                 Vec3 pixelPosWorld = vec3_build(pixelPos.x, pixelPos.y, pixelPos.z);
 
                 Vec3 direction = vec3_normalize(vec3_sub(pixelPosWorld, originWorldv3));
